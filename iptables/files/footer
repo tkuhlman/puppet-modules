@@ -1,0 +1,2 @@
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+COMMIT

@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# A simple iptables init script.
+# I really don't have a stop option all this does is load in the saved rules
+
+### BEGIN INIT INFO
+# Provides:        iptables
+# Required-Start:  $network
+# Required-Stop:   $network
+# Default-Start:   2 3 4 5
+# Default-Stop:    1
+# Short-Description: Start iptables
+### END INIT INFO
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+. /lib/lsb/init-functions
+
+case $1 in
+    start)
+        ip6tables-restore < /etc/network/ip6tables
+        if [ -d /etc/iptables.d ]; then
+            cat /etc/iptables.d/* | iptables-restore
+        else
+            iptables-restore < /etc/network/iptables
+        fi
+        ;;
+    stop)
+        $0 start
+        ;;
+    restart|force-reload)
+        $0 start
+        ;;
+    reload)
+        $0 start
+        ;;
+    status)
+        iptables -L -n -v
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 2
+        ;;
+esac
+
+
