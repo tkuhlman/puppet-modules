@@ -1,0 +1,10 @@
+Various puppet modules, written for ubuntu and may need cleanup for any 
+other os.
+
+- dynamic_dns - For ec2 instances, leverages amazon route53 and 
+https://launchpad.net/cirrus to provide dynamic dns.
+- ext_fsck - Turns off automatic fsck on ext partitions
+- iptables - A simple iptables setup leveraging virtual resources so 
+rules can be added for each service running on a box.
+- tmpwatch - Uses virtual resources to define directories that need 
+periodic cleanup.
