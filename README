@@ -6,5 +6,6 @@ https://launchpad.net/cirrus to provide dynamic dns.
 - ext_fsck - Turns off automatic fsck on ext partitions
 - iptables - A simple iptables setup leveraging virtual resources so 
 rules can be added for each service running on a box.
+- sysctl - A definition for defining sysctl.conf entries
 - tmpwatch - Uses virtual resources to define directories that need 
 periodic cleanup.
